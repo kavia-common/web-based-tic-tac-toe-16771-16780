@@ -1,13 +1,305 @@
+/* Ocean Professional Theme - Global Reset and Base Styles */
+:root {
+  --primary: #2563EB;  /* blue */
+  --secondary: #F59E0B; /* amber */
+  --success: #10B981;
+  --error: #EF4444;
+  --bg: #f9fafb; /* background */
+  --surface: #ffffff; /* surface */
+  --text: #111827; /* text */
+  --muted: #6B7280;
+  --ring: rgba(37, 99, 235, 0.35);
+  --shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
+  --radius: 16px;
+  --radius-sm: 12px;
+
+  --grid-gap: 14px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica Neue, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  color: var(--text);
+  background: radial-gradient(1200px 800px at 20% -10%, rgba(37,99,235,0.08), transparent 60%),
+              radial-gradient(1000px 700px at 120% 10%, rgba(245,158,11,0.08), transparent 60%),
+              var(--bg);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.app-shell {
+  display: grid;
+  place-items: center;
+  min-height: 100%;
+  padding: 28px;
+}
+
+.card {
+  width: 100%;
+  background: linear-gradient(to bottom right, rgba(255,255,255,0.9), rgba(255,255,255,0.98));
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(17,24,39,0.06);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 4px 14px;
+  border-bottom: 1px solid rgba(17,24,39,0.06);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-badge {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  color: white;
+  background: linear-gradient(145deg, #2563EB, #1D4ED8);
+  box-shadow: 0 8px 20px rgba(37,99,235,0.35), inset 0 0 12px rgba(255,255,255,0.25);
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+}
+
+.subtitle {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  border: 0;
+  outline: 0;
+  border-radius: 12px;
+  font-weight: 700;
+  letter-spacing: 0.25px;
+  padding: 10px 14px;
+  transition: all 200ms ease;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: var(--shadow);
+}
+
+.btn:focus-visible {
+  box-shadow: 0 0 0 4px var(--ring);
+}
+
+.btn-primary {
+  color: white;
+  background: linear-gradient(135deg, #2563EB, #1D4ED8);
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.03);
+}
+
+.btn-ghost {
+  background: #f3f4f6;
+  color: #1f2937;
+}
+
+.btn-ghost:hover {
+  transform: translateY(-1px);
+  background: #e5e7eb;
+}
+
+.btn-amber {
+  color: #1f2937;
+  background: linear-gradient(135deg, #fde68a, #f59e0b);
+}
+
+.status {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px 16px;
+  align-items: center;
+  padding: 14px 16px;
+  background: linear-gradient(180deg, rgba(37,99,235,0.05), rgba(255,255,255,0.7));
+  border: 1px solid rgba(37,99,235,0.15);
+  border-radius: 14px;
+}
+
+.status .label {
+  font-size: 12px;
+  text-transform: uppercase;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  font-weight: 700;
+}
+
+.status .value {
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .03em;
+  background: rgba(245,158,11,0.12);
+  color: #B45309;
+}
+
+.game-wrap {
+  display: grid;
+  gap: 16px;
+  padding: 18px;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(to bottom right, rgba(37,99,235,0.06), rgba(245,158,11,0.04));
+  border: 1px solid rgba(17,24,39,0.06);
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 96px);
+  grid-template-rows: repeat(3, 96px);
+  gap: var(--grid-gap);
+  justify-content: center;
+}
+
+.cell {
+  width: 96px;
+  height: 96px;
+  display: grid;
+  place-items: center;
+  background: var(--surface);
+  border-radius: 18px;
+  border: 1px solid rgba(17,24,39,0.06);
+  box-shadow: var(--shadow);
+  color: var(--text);
+  font-size: 40px;
+  font-weight: 900;
+  line-height: 1;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 140ms ease, box-shadow 140ms ease, border-color 140ms ease, background 140ms ease;
+}
+
+.cell:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(37,99,235,0.12);
+  border-color: rgba(37,99,235,0.35);
+}
+
+.cell.x {
+  color: #1D4ED8;
+  text-shadow: 0 6px 18px rgba(29,78,216,0.25);
+}
+
+.cell.o {
+  color: #B45309;
+  text-shadow: 0 6px 18px rgba(180,83,9,0.25);
+}
+
+.cell.winner {
+  background: linear-gradient(135deg, rgba(37,99,235,0.12), rgba(245,158,11,0.12));
+  border-color: rgba(245,158,11,0.55);
+  box-shadow: 0 12px 28px rgba(245,158,11,0.25);
+  transform: translateY(-3px) scale(1.02);
+}
+
+.panel {
+  display: grid;
+  gap: 12px;
+}
+
+.meta {
+  display: grid;
+  gap: 8px;
+}
+
+.history {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: 1fr;
+}
+
+.move-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 12px;
+  border: 1px dashed rgba(17,24,39,0.1);
+  background: rgba(255,255,255,0.6);
+}
+
+.move-item button {
+  padding: 8px 10px;
+}
+
+/* Responsive */
+@media (max-width: 560px) {
+  .board {
+    grid-template-columns: repeat(3, 84px);
+    grid-template-rows: repeat(3, 84px);
+  }
+  .cell {
+    width: 84px;
+    height: 84px;
+    font-size: 34px;
+    border-radius: 16px;
+  }
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .controls {
+    width: 100%;
+  }
 }
